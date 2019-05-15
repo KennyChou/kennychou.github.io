@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-15 22:17:56" itemprop="dateModified" datetime="2019-05-15T22:17:56+08:00">2019-05-15</time>
+                <time title="Modified: 2019-05-15 22:31:22" itemprop="dateModified" datetime="2019-05-15T22:31:22+08:00">2019-05-15</time>
               
             
           </span>
@@ -392,11 +392,27 @@
     B-->D;
     C-->D;</pre>
 
-<pre class="mermaid">graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;</pre>
+<pre class="mermaid">sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br>prevail...
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!</pre>
+<pre class="mermaid">classDiagram
+    Class01 <|-- averylongclass : cool class03 *-- class04 class05 o-- class06 class07 .. class08 class09 --> C2 : Where am i?
+    Class09 --* C3
+    Class09 --|> Class07
+    Class07 : equals()
+    Class07 : Object[] elementData
+    Class01 : size()
+    Class01 : int chimp
+    Class01 : int gorilla
+    Class08 <--> C2: Cool label</--></|--></pre>
           
         
       
@@ -698,6 +714,13 @@
 
 
 
+  <script src="https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
 
         
 
@@ -820,6 +843,26 @@
   
 
   
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: '',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
 
   
 
